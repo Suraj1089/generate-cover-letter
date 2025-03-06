@@ -76,6 +76,8 @@ const styles = {
   },
 };
 
+const SERVER = "https://generate-cover-letter-8f7l.onrender.com"
+
 // Landing Page Component
 function LandingPage() {
   const navigate = useNavigate();
@@ -128,7 +130,7 @@ function CoverLetterForm() {
     formData.append("job_description", jobDescription);
 
     try {
-      const res = await axios.post("http://localhost:8000/generate", formData);
+      const res = await axios.post(`${SERVER}/generate`, formData);
       setResponse(res.data); // Save the response from backend
     } catch (error) {
       console.error("Error generating message:", error);
